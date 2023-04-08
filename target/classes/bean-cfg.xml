@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="petrol" class="in.arc.beans.PetrolEngine"/>
+	<bean id="diesel" class="in.arc.beans.DieselEngine"/>
+	<!-- We have 4 types of Bean scopes -->
+	<!-- 1. Singletone - (default) : it means only one object will be created  -->
+	<!-- 2. Prototype : it means every time new object will be created -->
+	<!-- 3. request-->
+	<!-- 4. prototype -->
+	<!-- request and prototype will be used for Spring Web MVC App-->
+	<bean id="car" class="in.arc.beans.Car" scope="prototype">
+		<constructor-arg name="engine" ref="petrol"/>
+	</bean>
+
+
+</beans>
